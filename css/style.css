@@ -101,6 +101,9 @@ h1, h2, h3, h4, h5, h6, figure {
   .js-fh5co-nav-toggle {
         display: none !important; 
   }
+  #fh5co-logo {
+    display: none;
+  }
 }
 .fh5co-nav #fh5co-logo {
   font-size: 40px;
@@ -2006,3 +2009,68 @@ html {
     right: 40%; /* Đặt đường kẻ bên phải */
     margin-right: -70px; /* Di chuyển ra xa hơn */
 }
+
+/* ========================================= */
+/* CSS CHO NÚT PHÁT NHẠC CỐ ĐỊNH (VỚI HÌNH ẢNH ĐĨA NHẠC) */
+/* ========================================= */
+
+#music-toggle-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px; /* Tăng kích thước nút để chứa ảnh */
+    height: 60px;
+    cursor: pointer;
+    background-color: #B22222; 
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 9999; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+
+/* Disk Audio */
+
+/* Container fixed góc trái dưới */
+.music-player-fixed {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 9999;
+    transition: transform .25s ease, width .25s ease, height .25s ease;
+}
+
+/* Hover phóng to container luôn */
+.music-player-fixed:hover {
+    transform: scale(1.3); /* phóng to container */
+}
+
+/* Disc image chiếm 100%, giữ animation */
+#discFixed {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 4px solid #333;
+    box-shadow: 0 0 15px rgba(255,255,255,0.3);
+    animation: rotate 3s linear infinite;
+    animation-play-state: paused;
+    transition: box-shadow .25s ease, filter .25s ease;
+    user-select: none;
+}
+
+.music-player-fixed:hover #discFixed {
+    box-shadow: 0 0 30px rgba(255,255,255,0.6);
+    filter: brightness(1.3);
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+

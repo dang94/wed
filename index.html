@@ -6,7 +6,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Wedding &mdash; Khoa Dang & Ngoc Khanh</title>
+	<title>Wedding &mdash;</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
@@ -39,6 +39,7 @@
 
 	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
 	<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	
 	<!-- Animate.css -->
 	<link rel="stylesheet" href="css/animate.css">
@@ -346,7 +347,7 @@
 		</div>
 	</div>
 
-	<section id="gift-box" class="gift-box-section nav-light-bg">
+	<!-- <section id="gift-box" class="gift-box-section nav-light-bg">
 		<div class="container" style="margin-top: 20px;">
 			<div class="row">
 				<div class="col-md-12 text-center fh5co-heading" style="margin-bottom: 0;">
@@ -379,7 +380,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 
 	<div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
 		<div class="overlay"></div>
@@ -484,8 +485,44 @@
     // Kích hoạt kiểm tra lần đầu khi tải trang (phòng trường hợp trang được tải khi đang cuộn)
     window.dispatchEvent(new Event('scroll'));
 });
-</script>
 
+document.addEventListener('DOMContentLoaded', () => {
+    const disc = document.getElementById('discFixed');
+    const audio = document.getElementById('audioFixed');
+    const discContainer = document.getElementById('discContainerFixed');
+
+    discContainer.addEventListener('click', () => {
+        const isRunning = window.getComputedStyle(disc).animationPlayState === 'running';
+        if (isRunning) {
+            disc.style.animationPlayState = 'paused';
+            audio.pause();
+        } else {
+            disc.style.animationPlayState = 'running';
+            audio.play().catch(() => {});
+        }
+    });
+
+    // Tự quay khi load
+    disc.style.animationPlayState = 'running';
+    audio.play().catch(() => {});
+    
+    // Thu nhỏ đĩa khi scroll
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 150) {
+            discContainer.style.width = '50px';
+            discContainer.style.height = '50px';
+        } else {
+            discContainer.style.width = '80px';
+            discContainer.style.height = '80px';
+        }
+    });
+});
+</script>
+<div class="music-player-fixed" id="discContainerFixed">
+    <img id="discFixed" src="images/vinyl_record.png" alt="Music Disc">
+</div>
+
+<audio id="audioFixed" src="audio/music.mp3"></audio>
 	</body>
 </html>
 

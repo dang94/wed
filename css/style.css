@@ -1005,7 +1005,8 @@ form label {
 #fh5co-couple-story,
 #fh5co-couple,
 #fh5co-gallery,
-.fh5co-section {
+.fh5co-section,
+#fh5co-message {
   padding: 7em 0;
   clear: both;
 }
@@ -1189,7 +1190,8 @@ form label {
   line-height: 1.5;
   font-weight: bold;
   color: #F14E95;
-  font-family: "Great Vibes", Arial, serif;
+  /* font-family: "Great Vibes", Arial, serif; */
+  font-family: 'Satisfy', cursive;
 }
 @media screen and (max-width: 768px) {
   .fh5co-heading h2 {
@@ -1864,7 +1866,8 @@ form label {
 }
 
 .gift-box-section h2 {
-  font-family: 'Great Vibes', cursive; /* Đã đề xuất trước đó */
+  /* font-family: 'Great Vibes', cursive; */
+  font-family: 'Satisfy', cursive;
   font-weight: bold;
   font-size: 3em;
   margin-bottom: 20px;
@@ -2074,3 +2077,107 @@ html {
     100% { transform: rotate(360deg); }
 }
 
+/** line drawing */
+.line-drawing-text-small {
+    /* Đặt kích thước tối đa cho container (ví dụ: 50% so với bản gốc) */
+    width: 100%;
+    max-width: 500px; /* Có thể điều chỉnh */
+    height: auto;
+    overflow: visible;
+    margin: 20px auto; /* Căn giữa */
+}
+
+/* --- CHUNG CHO CHỮ & TRÁI TIM --- */
+.line-drawing-text-small text,
+.line-drawing-text-small .heart-path {
+    fill: none;
+    stroke: #D67A9A;
+    stroke-width: 2; /* Giảm độ dày nét vẽ */
+    
+    /* Dùng biến CSS để tính toán độ dài đường đi */
+    stroke-dasharray: var(--path-length, 1000);
+    stroke-dashoffset: var(--path-length, 1000);
+
+    animation: draw-loop-small 5s ease-in-out infinite;
+}
+
+.line-drawing-text-small text {
+    font-size: 70px; /* GIẢM KÍCH THƯỚC CHỮ */
+    font-family: 'Great Vibes', cursive;
+}
+
+@keyframes draw-loop-small {
+    0% { stroke-dashoffset: var(--path-length, 1000); }
+    40% { stroke-dashoffset: 0; }
+    60% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: var(--path-length, 1000); }
+}
+
+/** Phần lời chúc*/
+.cursive-title {
+    font-family: 'Satisfy', cursive;
+    font-size: 3.5em; /* Kích thước lớn */
+    color: #8c6060; /* Màu hồng đậm/đất */
+    margin-bottom: 5px;
+}
+/* Viền ngoài màu hồng nhạt */
+.frame-box {
+    border: 2px solid #e0c8c0; /* Màu viền hồng nhạt */
+    padding: 30px;
+    border-radius: 8px;
+    height: 100%; /* Đảm bảo cả hai cột đều có chiều cao */
+    display: flex;
+    flex-direction: column;
+}
+/* Container chính cho 2 cột */
+.main-content {
+    max-width: 960px; /* Độ rộng container chính */
+    margin: 0 auto;
+}
+/* Nút Gửi Lời Chúc */
+.btn-rose-gold {
+    background-color: #c99898;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    font-size: 1.1em;
+}
+.btn-rose-gold:hover {
+    background-color: #b38686;
+    color: white;
+}
+/* Input/Textarea */
+.form-control-custom {
+    border-radius: 4px;
+    border: 1px solid #e0c8c0;
+    box-shadow: none;
+    height: 45px;
+}
+.form-control-custom:focus {
+    border-color: #c99898;
+    box-shadow: none;
+}
+/* Khu vực cuộn tin nhắn */
+.scrollable-messages {
+    max-height: 360px; /* Điều chỉnh chiều cao cho phù hợp với form */
+    overflow-y: auto;  
+    padding-right: 10px; 
+}
+.message-card {
+    border: none;
+    padding: 15px;
+    background-color: #f7f7f7;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    /* Dùng viền đậm cho tiêu đề */
+    border-left: 4px solid #c99898;
+}
+
+.timestamp-muted {
+    /* Đặt màu xám nhạt hơn màu text-muted mặc định của B3 */
+    color: #a0a0a0 !important; 
+    /* Giảm độ mờ (opacity) xuống 75% */
+    opacity: 0.75; 
+}

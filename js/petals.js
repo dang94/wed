@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!header) return; 
 
     // Ngưỡng cuộn (scroll) mà tại đó header sẽ đổi màu
-    const scrollThreshold = 100; 
+    const scrollThreshold = 200; 
 
     window.addEventListener('scroll', function() {
         if (window.scrollY > scrollThreshold) {

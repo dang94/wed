@@ -74,7 +74,7 @@
 						<li><a href="#fh5co-event" class="scroll-link">Event</a></li>
 						<li><a href="#fh5co-couple-story" class="scroll-link">Story</a></li>
 						<li><a href="#fh5co-gallery" class="scroll-link">Gallery</a></li>
-						<li><a href="#gift-box" class="scroll-link">Gift</a></li>
+						<li><a href="#fh5co-message" class="scroll-link">wish</a></li>
 					</ul>
 				</div>
 			</div>
@@ -82,7 +82,20 @@
 		</div>
 	</nav>
 
-	<header id="fh5co-header" class="fh5co-cover nav-dark-bg" role="banner" style="background-image:url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
+	<header id="fh5co-header" class="fh5co-cover nav-dark-bg" role="banner" data-stellar-background-ratio="0.5">
+		<div class="slideshow-container">
+			<div class="mySlides">
+				<img src="images/slide-1.jpg" alt="slide 1">
+			</div>
+
+			<div class="mySlides">
+				<img src="images/slide-2.jpg" alt="slide 2">
+			</div>
+			
+			<div class="mySlides">
+				<img src="images/slide-3.jpg" alt="slide 3">
+			</div>
+        </div>
 		<div class="overlay"></div>
 		<div class="container">
 			<div class="row">
@@ -212,7 +225,6 @@
 				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 					<span>We Love Each Other</span>
 					<h2>Our Story</h2>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
 				</div>
 			</div>
 			<div class="row">
@@ -707,6 +719,24 @@ document.addEventListener('DOMContentLoaded',()=>{
     
     fetchMessages();
 });
+
+// slide show
+var slideIndex = 0;
+
+showSlides(); 
+
+function showSlides() {
+    var slides = $(".mySlides");
+    
+    slides.fadeOut(0);
+    
+    slideIndex++;
+    if (slideIndex > slides.length) {
+        slideIndex = 1;
+    }
+    $(slides[slideIndex - 1]).fadeIn(1500);
+    setTimeout(showSlides, 4000); 
+}
 </script>
 
 </script>

@@ -2176,8 +2176,36 @@ html {
 }
 
 .timestamp-muted {
-    /* Đặt màu xám nhạt hơn màu text-muted mặc định của B3 */
     color: #a0a0a0 !important; 
-    /* Giảm độ mờ (opacity) xuống 75% */
     opacity: 0.75; 
+}
+
+/** Slide show*/
+#fh5co-header {
+    background-image: none !important; 
+    position: relative; 
+}
+
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
